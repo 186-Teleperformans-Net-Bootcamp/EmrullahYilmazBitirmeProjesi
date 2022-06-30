@@ -10,4 +10,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\BitirmeProjesi.Application\BitirmeProjesi.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\BitirmeProjesi.Persistence\BitirmeProjesi.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

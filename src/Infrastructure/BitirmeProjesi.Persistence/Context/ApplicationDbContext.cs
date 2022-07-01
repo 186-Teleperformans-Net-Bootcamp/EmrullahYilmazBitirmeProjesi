@@ -12,16 +12,23 @@ namespace BitirmeProjesi.Persistence.Context
 {
     public class ApplicationDbContext : DbContext
     {
-        
-        public DbSet<List> Lists { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            //modelBuilder.Entity<List>().HasData(
-            //    new List() { Id = Guid.NewGuid(), Category = { Id = Guid.NewGuid(), Name = "Migros Alışverişi" }, IsCompleted=0, Title ="Kırtasiye", Item = {Id=Guid.NewGuid(),Name = "Ekmek",Quantity = 1}, }     }
 
-            //    );
-            //base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<ShoppingList> ShoppingLists { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    //modelBuilder.Entity<List>().HasData(
+        //    //    new List() { Id = Guid.NewGuid(), Category = { Id = Guid.NewGuid(), Name = "Migros Alışverişi" }, IsCompleted=0, Title ="Kırtasiye", Item = {Id=Guid.NewGuid(),Name = "Ekmek",Quantity = 1}, }     }
+
+        //    //    );
+        //    //base.OnModelCreating(modelBuilder);       
+        //}
     }
 }

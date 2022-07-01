@@ -15,6 +15,13 @@ namespace BitirmeProjesi.Domain.Entitiess
         [Required]
         public string Name { get; set; }
         public int Quantity { get; set; }
-       
+        public class Declare
+        {
+            public Type Type { get; set; }
+
+        }
+        public enum Type { Kilogram, Litre, Adet }
+
+
     }
 }

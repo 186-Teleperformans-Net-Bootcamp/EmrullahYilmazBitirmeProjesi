@@ -1,4 +1,4 @@
-﻿using BitirmeProjesi.Domain.Common;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace BitirmeProjesi.Domain.Entities
 {
-    public class Category : BaseEntity
+    public class ApplicationRole : IdentityRole
     {
-        
-        public string Name { get; set; }
-
-
     }
 }

@@ -19,7 +19,6 @@ namespace BitirmeProjesi.Domain.Entities
         public DateTime CompletedDate { get; set; }
        
         public int IsCompleted { get; set; }
-        [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

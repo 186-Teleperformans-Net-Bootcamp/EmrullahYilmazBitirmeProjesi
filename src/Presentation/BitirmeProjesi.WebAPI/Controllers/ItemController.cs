@@ -4,12 +4,13 @@ using BitirmeProjesi.Persistence.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-    
+using Microsoft.AspNetCore.Authorization;
 
 namespace BitirmeProjesi.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ItemController : ControllerBase
     {
         private ApplicationDbContext applicationDbContext = null;

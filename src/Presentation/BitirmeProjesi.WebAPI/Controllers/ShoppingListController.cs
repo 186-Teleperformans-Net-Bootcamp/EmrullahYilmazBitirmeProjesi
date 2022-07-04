@@ -1,6 +1,7 @@
 ﻿using BitirmeProjesi.Domain.Entities;
 using BitirmeProjesi.Domain.Entitiess;
 using BitirmeProjesi.Persistence.Context;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ShoppingListController : ControllerBase
     {
         private ApplicationDbContext _context = null;
@@ -22,13 +24,15 @@ namespace BitirmeProjesi.WebAPI.Controllers
         public IEnumerable<ShoppingList> Get()
         {
             //var users = _context.ShoppingLists.ToList();
-            
+
             var itemname = _context.ShoppingLists.Include(x => x.Items).ToList();
             var users = _context.ShoppingLists.ToList();
 
 
-            
+
             return itemname;
+
+
         }
 
         [HttpGet("GetById")]
@@ -40,16 +44,23 @@ namespace BitirmeProjesi.WebAPI.Controllers
         [HttpPost]
         public void Post(string categoryname, string title, ICollection<Item> Items)
         {
+
+
             ShoppingList sl = new ShoppingList()
             {
                 CategoryName = categoryname,
                 Title = title,
                 Items = Items,
                 CreatedDate = DateTime.Now,
-                
+                UserId = "user",
+
+
             };
             _context.ShoppingLists.Add(sl);
             _context.SaveChanges();
+            
+            
+
         }
         [HttpPut]
         public void Put(ShoppingList user)

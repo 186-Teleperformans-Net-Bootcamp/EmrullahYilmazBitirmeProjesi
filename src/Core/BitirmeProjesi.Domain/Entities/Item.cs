@@ -12,10 +12,8 @@ namespace BitirmeProjesi.Domain.Entitiess
     public class Item : BaseEntity
     {
         
-        [Required]
         public string Name { get; set; }
         public int Quantity { get; set; }
-        [Required]
         public string UserId { get; set; }
         public int? ShoppingListId { get; set; }
         public Type Type { get; set; }
@@ -23,9 +21,9 @@ namespace BitirmeProjesi.Domain.Entitiess
     }
     public enum Type
     {
-        Litre,
-        Kilogram,
-        Adet,
+        Litre = 0, 
+        Kilogram= 1,
+        Adet = 2,
         
     }
 }

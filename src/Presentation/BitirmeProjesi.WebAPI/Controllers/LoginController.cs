@@ -1,5 +1,8 @@
 ﻿using BitirmeProjesi.Application.Dto;
 using BitirmeProjesi.Domain.Entities;
+using BitirmeProjesi.Persistence.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,11 +19,29 @@ namespace BitirmeProjesi.WebAPI.Controllers
     {
         private UserManager<User> _userManager;
         private RoleManager<ApplicationRole> _roleManager;
+        //private readonly IConfiguration _configuration;
+        private readonly JwtBearerOptions jwtOpts;
+        private readonly IJWTManagerRepository _jWTManager;
 
-        public LoginController(UserManager<User> userManager, RoleManager<ApplicationRole> roleManager)
+        public LoginController(UserManager<User> userManager, RoleManager<ApplicationRole> roleManager, IJWTManagerRepository jWTManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            this._jWTManager = jWTManager;
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("authenticate")]
+        public IActionResult Authenticate(User usersdata)
+        {
+            var token = _jWTManager.Authenticate(usersdata);
+
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(token);
         }
         [Route("User")]
         [HttpPost]
@@ -32,7 +53,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
                 {
                     UserName = model.UserName.Trim(),
                     Email = model.Email.Trim()
-
+                    
                 };
                 IdentityResult result = await _userManager.CreateAsync(user, model.Password.Trim());
                 if(result.Succeeded)
@@ -80,8 +101,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
                     var signinKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySuperSecureKey"));
 
                     var token = new JwtSecurityToken(
-                        issuer: "http://google.com",
-                        audience: "http://google.com",
+
                         expires: DateTime.UtcNow.AddHours(1),
                         claims: claims,
                         signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256)
@@ -99,5 +119,9 @@ namespace BitirmeProjesi.WebAPI.Controllers
             }
             return BadRequest("Veriler uygun değil");
         }
+
+
+
+
     }
 }

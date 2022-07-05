@@ -20,6 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services.Configure<ShoppingListsDatabaseSettings>(builder.Configuration.GetSection("MongoConnectionStrings"));
+builder.Services.AddScoped<IMessageProducer, RabbitMQProducer>();
 
 
 

@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitirmeProjesi.Domain", "src\Core\BitirmeProjesi.Domain\BitirmeProjesi.Domain.csproj", "{ACF1AFC9-D2F5-4613-B7DE-BB190F688C2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitirmeProjesi.Application", "src\Core\BitirmeProjesi.Application\BitirmeProjesi.Application.csproj", "{804A4512-9340-45C9-9E0C-F75E9496B826}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitirmeProjesi.Application", "src\Core\BitirmeProjesi.Application\BitirmeProjesi.Application.csproj", "{804A4512-9340-45C9-9E0C-F75E9496B826}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitirmeProjesi.Infrastructure", "src\Infrastructure\BitirmeProjesi.Infrastructure\BitirmeProjesi.Infrastructure.csproj", "{75914107-C732-44F5-B7D4-3D02C122A06A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitirmeProjesi.Infrastructure", "src\Infrastructure\BitirmeProjesi.Infrastructure\BitirmeProjesi.Infrastructure.csproj", "{75914107-C732-44F5-B7D4-3D02C122A06A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitirmeProjesi.Persistence", "src\Infrastructure\BitirmeProjesi.Persistence\BitirmeProjesi.Persistence.csproj", "{7B60BD90-672F-4D27-B0DA-1CBC12732463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitirmeProjesi.Persistence", "src\Infrastructure\BitirmeProjesi.Persistence\BitirmeProjesi.Persistence.csproj", "{7B60BD90-672F-4D27-B0DA-1CBC12732463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitirmeProjesi.WebAPI", "src\Presentation\BitirmeProjesi.WebAPI\BitirmeProjesi.WebAPI.csproj", "{CF110B28-E641-4B5D-BD47-05F92039C88E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitirmeProjesi.WebAPI", "src\Presentation\BitirmeProjesi.WebAPI\BitirmeProjesi.WebAPI.csproj", "{CF110B28-E641-4B5D-BD47-05F92039C88E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienRabbitMQ", "src\Infrastructure\ClienRabbitMQ\ClienRabbitMQ.csproj", "{77FE8FAD-F79B-4F70-BC64-9DA0674C3441}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{CF110B28-E641-4B5D-BD47-05F92039C88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF110B28-E641-4B5D-BD47-05F92039C88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF110B28-E641-4B5D-BD47-05F92039C88E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77FE8FAD-F79B-4F70-BC64-9DA0674C3441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77FE8FAD-F79B-4F70-BC64-9DA0674C3441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77FE8FAD-F79B-4F70-BC64-9DA0674C3441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77FE8FAD-F79B-4F70-BC64-9DA0674C3441}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{75914107-C732-44F5-B7D4-3D02C122A06A} = {49B40B07-E337-4E04-A19D-DE9C8BE680AE}
 		{7B60BD90-672F-4D27-B0DA-1CBC12732463} = {49B40B07-E337-4E04-A19D-DE9C8BE680AE}
 		{CF110B28-E641-4B5D-BD47-05F92039C88E} = {753891FF-9850-44D3-A4E9-10C68F44D830}
+		{77FE8FAD-F79B-4F70-BC64-9DA0674C3441} = {49B40B07-E337-4E04-A19D-DE9C8BE680AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2B6AC07-DDE8-479A-AF34-87FB46DDC1B3}

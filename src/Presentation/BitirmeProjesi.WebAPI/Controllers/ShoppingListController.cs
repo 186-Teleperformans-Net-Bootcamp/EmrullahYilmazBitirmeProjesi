@@ -20,9 +20,10 @@ namespace BitirmeProjesi.WebAPI.Controllers
     {
         private ApplicationDbContext _context = null;
         private readonly IMongoCollection<MongoShoppingList> _shoppinglist;
-
-        public ShoppingListController(ApplicationDbContext applicationDbContext, IOptions<ShoppingListsDatabaseSettings> options)
+        private readonly IMessageProducer _messagePublisher;
+        public ShoppingListController(ApplicationDbContext applicationDbContext, IMessageProducer messagePublisher, IOptions<ShoppingListsDatabaseSettings> options)
         {
+            _messagePublisher = messagePublisher;
             this._context = applicationDbContext;
             var mongoclient = new MongoClient(options.Value.ConnectionString);
             _shoppinglist = mongoclient.GetDatabase(options.Value.DatabaseName)
@@ -112,6 +113,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
                     UserId = shoppinglist.UserId
                 };
                 _shoppinglist.InsertOne(mg);
+                _messagePublisher.SendMessage(mg);
             }
 
         }

@@ -1,4 +1,5 @@
 ﻿using BitirmeProjesi.Domain.Entities;
+using BitirmeProjesi.Persistence.Context;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -8,32 +9,42 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using BitirmeProjesi.Persistence.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BitirmeProjesi.Persistence.Repositories
 {
 	public class JWTManagerRepository : IJWTManagerRepository
 	{
-		Dictionary<string, string> UsersRecords = new Dictionary<string, string>
-	{
-		{ "user1","password1"},
-		{ "user2","password2"},
-		{ "emrullah","password3"},
-	};
+	//	Dictionary<string, string> UsersRecords = new Dictionary<string, string>
+	//{
+	//	{ "user1","password1"},
+	//	{ "user2","password2"},
+	//	{ "emrullah","password3"},
+	//};
 
-		private readonly IConfiguration iconfiguration;
-		public JWTManagerRepository(IConfiguration iconfiguration)
+        private readonly ApplicationDbContext _context;
+
+        private readonly IConfiguration iconfiguration;
+		public JWTManagerRepository(IConfiguration iconfiguration, IServiceScopeFactory factory)
 		{
+			//this._context = applicationDbContext;
+			this._context = factory.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
 			this.iconfiguration = iconfiguration;
 		}
 		public Tokens Authenticate(User users)
 		{
-			if (!UsersRecords.Any(x => x.Key == users.UserName))
-			{
-				return null;
-			}
+            //if (!UsersRecords.Any(x => x.Key == users.UserName))
+            //{
+            //    return null;
+            //}
+            if (!_context.Users.Any(x => x.UserName == users.UserName))
+            {
+                return null;
+            }
 
-			// Else we generate JSON Web Token
-			var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenHandler = new JwtSecurityTokenHandler();
 			var tokenKey = Encoding.UTF8.GetBytes(iconfiguration["JWT:Token"]);
 			var tokenDescriptor = new SecurityTokenDescriptor
 			{

@@ -80,7 +80,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
                 }
                 return BadRequest(errorMessage);
             }
-            return BadRequest("Bilgilerinizi kontrol ediniz. İstenilen formatta değil");
+            return BadRequest("Check your information. Not in the desired format");
 
         }
         [HttpPost]
@@ -106,18 +106,18 @@ namespace BitirmeProjesi.WebAPI.Controllers
                         claims: claims,
                         signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256)
                         );
-                    return Ok(new
-                    {
-                        token = new JwtSecurityTokenHandler().WriteToken(token),
-                        expiration = token.ValidTo
-                    });
+                    return Ok(
+                    //{new
+                    //    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    //    expiration = token.ValidTo}
+                      );
                 }
                 else
                 {
-                    return BadRequest("Giriş bilgilerinizi kontrol edin hatalı gözüküyor.");
+                    return BadRequest("Check your login information, it seems to be incorrect.");
                 }
             }
-            return BadRequest("Veriler uygun değil");
+            return BadRequest("Data is not available");
         }
 
 

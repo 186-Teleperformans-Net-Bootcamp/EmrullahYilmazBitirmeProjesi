@@ -23,6 +23,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
         [HttpGet]
         public IEnumerable<Item> Get()
         {
+
             var users = applicationDbContext.Items.ToList();
             return users;
         }
@@ -45,28 +46,45 @@ namespace BitirmeProjesi.WebAPI.Controllers
         [HttpPost]
         public void Post(string name, int quantity,int shoplistid,Domain.Entitiess.Type type)
         {
-            Item sl = new Item()
+            try
             {
-               Name = name,
-               Quantity = quantity,
-               ShoppingListId = shoplistid,
-               UserId = "string",
-               Type = type
-              
-               
-            };
-            applicationDbContext.Items.Add(sl);
-            applicationDbContext.SaveChanges();
+                Item sl = new Item()
+                {
+                    Name = name,
+                    Quantity = quantity,
+                    ShoppingListId = shoplistid,
+                    Type = type
+
+
+                };
+                applicationDbContext.Items.Add(sl);
+                applicationDbContext.SaveChanges();
+
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            
         }
         [HttpPut]
         public void Put(Item user)
         {
-            var result = applicationDbContext.ShoppingLists.Find(user.Id);
-            if (result != null)
+
+            try
             {
-                applicationDbContext.Entry(result).CurrentValues.SetValues(user);
-                applicationDbContext.SaveChanges();
+                var result = applicationDbContext.ShoppingLists.Find(user.Id);
+                if (result != null)
+                {
+                    applicationDbContext.Entry(result).CurrentValues.SetValues(user);
+                    applicationDbContext.SaveChanges();
+                }
             }
+            catch(Exception e)
+            {
+                throw e;
+            }
+           
         }
     }
 }

@@ -71,7 +71,7 @@ builder.Services.AddAuthentication(options =>
 
 });
 builder.Services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
-
+    
 //builder.Services.AddSession();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

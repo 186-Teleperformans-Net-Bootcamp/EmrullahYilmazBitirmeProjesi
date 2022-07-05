@@ -14,7 +14,6 @@ namespace BitirmeProjesi.Domain.Entitiess
         
         public string Name { get; set; }
         public int Quantity { get; set; }
-        public string UserId { get; set; }
         public int? ShoppingListId { get; set; }
         public Type Type { get; set; }
 

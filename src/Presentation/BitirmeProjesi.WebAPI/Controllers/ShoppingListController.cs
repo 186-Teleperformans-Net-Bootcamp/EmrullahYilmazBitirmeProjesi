@@ -1,10 +1,13 @@
 ﻿using BitirmeProjesi.Domain.Entities;
 using BitirmeProjesi.Domain.Entitiess;
+using BitirmeProjesi.Infrastructure;
 using BitirmeProjesi.Persistence.Context;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using System.Collections.Generic;
 
 namespace BitirmeProjesi.WebAPI.Controllers
@@ -16,9 +19,14 @@ namespace BitirmeProjesi.WebAPI.Controllers
     public class ShoppingListController : ControllerBase
     {
         private ApplicationDbContext _context = null;
-        public ShoppingListController(ApplicationDbContext applicationDbContext)
+        private readonly IMongoCollection<MongoShoppingList> _shoppinglist;
+
+        public ShoppingListController(ApplicationDbContext applicationDbContext, IOptions<ShoppingListsDatabaseSettings> options)
         {
             this._context = applicationDbContext;
+            var mongoclient = new MongoClient(options.Value.ConnectionString);
+            _shoppinglist = mongoclient.GetDatabase(options.Value.DatabaseName)
+                .GetCollection<MongoShoppingList>(options.Value.ShoppingListName);
         }
         [HttpGet]
         public IEnumerable<ShoppingList> Get()
@@ -83,6 +91,28 @@ namespace BitirmeProjesi.WebAPI.Controllers
 
 
 
+
+        }
+        [HttpPatch]
+        public void IsCompleted(int iscompleted,int listid)
+        {
+            var shoppinglist = _context.ShoppingLists.Include(x => x.Items).FirstOrDefault(x => x.Id == listid);
+      
+            if (iscompleted == 1)
+            {
+                MongoShoppingList mg = new MongoShoppingList()
+                {
+                    Id = Convert.ToString(shoppinglist.Id),
+                    CategoryName = shoppinglist.CategoryName,
+                    Title = shoppinglist.Title,
+                    Items = shoppinglist.Items,
+                    CompletedDate = DateTime.Now,
+                    CreatedDate = shoppinglist.CreatedDate,
+                    IsCompleted = iscompleted,
+                    UserId = shoppinglist.UserId
+                };
+                _shoppinglist.InsertOne(mg);
+            }
 
         }
         [HttpPut]

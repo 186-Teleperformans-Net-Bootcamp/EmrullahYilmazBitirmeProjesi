@@ -1,4 +1,5 @@
 using BitirmeProjesi.Domain.Entities;
+using BitirmeProjesi.Infrastructure;
 using BitirmeProjesi.Persistence.Context;
 using BitirmeProjesi.Persistence.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -17,6 +18,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+
+builder.Services.Configure<ShoppingListsDatabaseSettings>(builder.Configuration.GetSection("MongoConnectionStrings"));
+
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(configuration.GetConnectionString("Default"))
@@ -80,7 +85,12 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-
+//app.MapGet("/", () => "BitirmeProjesi.WebAPI");
+//app.MapPost("/api/MongoShoppingList", async (ShoppingListsService shoppingListsService, MongoShoppingList mongoShoppingList) =>
+// {
+//     await shoppingListsService.Create(mongoShoppingList);
+//     return Results.Ok();
+// });
 // Configure the HTTP request pipeline.
 
 if (app.Environment.IsDevelopment())

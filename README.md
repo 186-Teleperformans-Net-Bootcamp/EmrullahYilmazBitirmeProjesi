@@ -9,6 +9,7 @@ Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitir
 :heavy_check_mark: API'nin dışardan kullanılabilmesi için token(JWT) bazlı bir yapı geliştirildi.<br>
 :heavy_check_mark: Event fırlatma işlemi için RabbitMQ kullanıldı.<br>
 :heavy_check_mark: Veritabanı işlemleri için EntityFrameworkCore, MSSQL ve MongoDb kullanıldı.<br>
+:heavy_check_mark: Identity ve Authenticate kullanıldı. <br>
 :heavy_check_mark: Projede Unit ve Entegrasyon testi yazıldı.<br>
 :heavy_check_mark: InMemoryCache kullanıldı.<br>
 

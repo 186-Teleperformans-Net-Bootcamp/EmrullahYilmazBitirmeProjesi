@@ -59,43 +59,52 @@ Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitir
 
 - Kullanımı için projemizi derledikten sonra çalıştırıyoruz.
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/swagger1.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/swagger1.png"/>
 - Controller metodları
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/swagger2.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/swagger2.png"/>
+
 - Controller metodları
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman1.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman1.png"/>
 
 - Kayıtlı kullanıcı girişi 
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman2.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman2.png"/>
+
 - Giriş yaptıktan sonra doğrulama yapılması ve token verilmesi
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman3.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman3.png"/>
+
 - Tokenin type'ını Bearer Token olarak seçtikten sonra ilgili yere yapıştırılması
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman4.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman4.png"/>
+
 - Shopping Listimizi hazırlamak için url query kısmına categoryname ve title kısmını girdikten sonra body tarafında shopping listingin oluşturulması
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman5.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman5.png"/>
+
 - Get yaptığımızda dönen response
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman6.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman6.png"/>
 - Get yaptığımızda dönen response
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman7.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman7.png"/>
+
 - Listenin tamamlanması için Patch metoduyla iscompleted değerinin 1 verilmesi
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/rabbitmq.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/rabbitmq.png"/>
+
 - Patch metoduyla eventin yakalanması ve RabbitMQ tarafından görülmesi
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/rabbitmq2.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/rabbitmq2.png"/>
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/mongo.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/mongo.png"/>
+
 - Tamamlanan listenin MongoDb tarafından kayıt alınması ve gösterilmesi
 
-<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman8.png"/>
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman8.png"/>
+
 - Doğrulamayı test etmek için token type'ını kapattıktan sonra sistemin kullanıcının Unauthorized edilmesi
 
 

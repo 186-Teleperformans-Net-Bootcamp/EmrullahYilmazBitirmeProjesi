@@ -18,15 +18,17 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-
+//MongoDb baðlantýsý
 builder.Services.Configure<ShoppingListsDatabaseSettings>(builder.Configuration.GetSection("MongoConnectionStrings"));
+//RabbitMQ baðlantýsý
 builder.Services.AddScoped<IMessageProducer, RabbitMQProducer>();
 
 
-
+//MSSQL baðlantýsý
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(configuration.GetConnectionString("Default"))
 );
+//EntityFrameworkCore identity iþlemleri
 builder.Services.AddIdentity<User, ApplicationRole>(options =>
 {
     options.Password.RequiredLength = 6;
@@ -42,7 +44,7 @@ builder.Services.AddIdentity<User, ApplicationRole>(options =>
 })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
-// Add services to the container.
+//token iþlemleri
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.Name = "member_cookie";

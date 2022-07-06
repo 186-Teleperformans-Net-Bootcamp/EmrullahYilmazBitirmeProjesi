@@ -15,7 +15,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
         private readonly IMongoCollection<MongoShoppingList> _shoppinglist;
         public MongoDbController(IOptions<ShoppingListsDatabaseSettings> options)
         {
-
+            //MongoDb de var olan verileri görüntülemek için ihtiyaç olan ayrı bir controller
             var mongoclient = new MongoClient(options.Value.ConnectionString);
             _shoppinglist = mongoclient.GetDatabase(options.Value.DatabaseName)
                 .GetCollection<MongoShoppingList>(options.Value.ShoppingListName);

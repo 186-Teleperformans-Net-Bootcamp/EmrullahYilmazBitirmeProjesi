@@ -34,6 +34,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
         [HttpGet("cache")]
         public ActionResult<IEnumerable<Item>> GetByCache()
         {
+            //InMemoryCache
             Item item = new Item()
             {
                 ShoppingListId = 4,
@@ -80,7 +81,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
         }
         [HttpPost]
         public void Post(string name, int quantity,int shoplistid,Domain.Entitiess.Type type)
-        {
+        {//burada tüm parametreler değilde kullanıcının görmesi gereken parametreler yazıldı sadece
             try
             {
                 Item sl = new Item()

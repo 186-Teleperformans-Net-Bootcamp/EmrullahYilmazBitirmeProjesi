@@ -12,6 +12,7 @@ namespace BitirmeProjesi.Infrastructure
     {
         public void SendMessage<T>(T message)
         {
+            //RabbitMQ işlemleri
             var factory = new ConnectionFactory
             {
                 HostName = "localhost"

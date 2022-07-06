@@ -8,6 +8,7 @@ namespace BitirmeProjesi.Infrastructure
 {
     public class ShoppingListsDatabaseSettings
     {
+        //MongoDb için gerekli parametreler
         public string ConnectionString { get; set; } = string.Empty;
         public string DatabaseName { get; set; } = string.Empty;
         public string ShoppingListName { get; set; } = string.Empty;

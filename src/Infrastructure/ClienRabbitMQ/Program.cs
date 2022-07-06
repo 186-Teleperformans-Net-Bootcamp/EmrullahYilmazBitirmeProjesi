@@ -2,6 +2,8 @@
 using RabbitMQ.Client.Events;
 using System.Text;
 
+
+//classlarda yazılan RabbitMQ kodları. Console uygulamasında giden verileri ekrana yazdırıyor
 var factory = new ConnectionFactory
 {
     HostName = "localhost"

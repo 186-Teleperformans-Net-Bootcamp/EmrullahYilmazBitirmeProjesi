@@ -18,6 +18,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
     [Authorize]
     public class ShoppingListController : ControllerBase
     {
+        
         private ApplicationDbContext _context = null;
         private readonly IMongoCollection<MongoShoppingList> _shoppinglist;
         private readonly IMessageProducer _messagePublisher;
@@ -31,11 +32,12 @@ namespace BitirmeProjesi.WebAPI.Controllers
         }
         [HttpGet]
         public IEnumerable<ShoppingList> Get()
-        {
+        {// tüm kullanıcıların bilgisini getirir
             //var users = _context.ShoppingLists.ToList();
             try
             {
                 var itemname = _context.ShoppingLists.Include(x => x.Items).ToList();
+                // include kullanmamın sebebi verilerin normalde null olarak dönnmesi. Lazy loading ya da include kullanacaktım include seçtim
                 var users = _context.ShoppingLists.ToList();
 
 
@@ -96,7 +98,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
         }
         [HttpPatch]
         public void IsCompleted(int iscompleted,int listid)
-        {
+        {//burada MSSQL den gelen veriler shoppinglistin tamamlanmasıyla birlikte MongoDb ye RabbitMQ aracılığıyla gider
             var shoppinglist = _context.ShoppingLists.Include(x => x.Items).FirstOrDefault(x => x.Id == listid);
       
             if (iscompleted == 1)

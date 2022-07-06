@@ -10,6 +10,8 @@ namespace BitirmeProjesi.Infrastructure
 {
     public class RabbitMQProducer : IMessageProducer
     {
+        //RabbitMQ işlemleri
+
         public void SendMessage<T>(T message)
         {
             var factory = new ConnectionFactory

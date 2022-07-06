@@ -17,6 +17,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        // Register, Login ve authenticate işlemleri
         private UserManager<User> _userManager;
         private RoleManager<ApplicationRole> _roleManager;
         //private readonly IConfiguration _configuration;
@@ -33,7 +34,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
         [HttpPost]
         [Route("authenticate")]
         public IActionResult Authenticate(User usersdata)
-        {
+        {//giriş yapan kullanıcı buraya name ve password ile istek atar ve doğrulanmış olur
             var token = _jWTManager.Authenticate(usersdata);
 
             if (token == null)
@@ -46,7 +47,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
         [Route("User")]
         [HttpPost]
         public async Task<ActionResult> UserCreate([FromBody] UserCreateViewModel model)
-        {
+        {// yeni kullanıcı kaydı
             if (ModelState.IsValid)
             {
                 User user = new User()
@@ -88,7 +89,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
         public async Task<ActionResult> Login([FromBody] LoginViewModel model)
         {
             if (ModelState.IsValid)
-            {
+            {//Kullanıcı girişi
                 User user = await _userManager.FindByNameAsync(model.UserName.Trim());
                 if (user != null && await _userManager.CheckPasswordAsync(user, model.Password.Trim()))
                 {

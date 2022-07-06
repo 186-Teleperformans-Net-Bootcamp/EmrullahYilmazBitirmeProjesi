@@ -16,13 +16,8 @@ namespace BitirmeProjesi.Persistence.Repositories
 {
 	public class JWTManagerRepository : IJWTManagerRepository
 	{
-	//	Dictionary<string, string> UsersRecords = new Dictionary<string, string>
-	//{
-	//	{ "user1","password1"},
-	//	{ "user2","password2"},
-	//	{ "emrullah","password3"},
-	//};
-
+	
+		//Jwt işlemleri controllerde login\login ve login\authenticate için kodlar
         private readonly ApplicationDbContext _context;
 
         private readonly IConfiguration iconfiguration;

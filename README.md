@@ -59,6 +59,7 @@ Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitir
 - Kullanımı için projemizi derledikten sonra çalıştırıyoruz.
 
 <img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/swagger1.png"/>
+
 - Controller metodları
 
 <img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/swagger2.png"/>
@@ -86,6 +87,7 @@ Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitir
 - Get yaptığımızda dönen response
 
 <img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman6.png"/>
+
 - Get yaptığımızda dönen response
 
 <img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman7.png"/>

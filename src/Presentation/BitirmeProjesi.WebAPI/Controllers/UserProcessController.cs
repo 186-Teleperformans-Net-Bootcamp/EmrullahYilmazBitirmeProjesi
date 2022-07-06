@@ -12,7 +12,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-
+    // Burada sadece sisteme giriş yapan kullanıcının kendine ait verileri gelir
     public class UserProcessController : ControllerBase
     {
         private ApplicationDbContext _context = null;

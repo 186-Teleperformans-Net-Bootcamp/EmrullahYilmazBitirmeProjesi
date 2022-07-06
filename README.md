@@ -3,7 +3,7 @@
 Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitirme projesidir.
 
 ### Kullanılan Teknolojiler:
-:heavy_check_mark: .Net 6.0 frameworkü ile Asp.Net Core Web API ve ConsoleApp kullanıldı.
+:heavy_check_mark: .Net 6.0 frameworkü ile Asp.Net Core Web API ve ConsoleApp kullanıldı.<br>
 :heavy_check_mark: Onion Architecture kullanıldı.
 :heavy_check_mark: Postman ile API test edildi.
 :heavy_check_mark: API'nin dışardan kullanılabilmesi için token(JWT) bazlı bir yapı geliştirildi.

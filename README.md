@@ -1,16 +1,17 @@
+
 #Teleperformance .Net Bootcamp Bitirme Proesi
 
 Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitirme projesidir.
 
 ### Kullanılan Teknolojiler:
 :heavy_check_mark: .Net 6.0 frameworkü ile Asp.Net Core Web API ve ConsoleApp kullanıldı.<br>
-:heavy_check_mark: Onion Architecture kullanıldı.
-:heavy_check_mark: Postman ile API test edildi.
-:heavy_check_mark: API'nin dışardan kullanılabilmesi için token(JWT) bazlı bir yapı geliştirildi.
-:heavy_check_mark: Event fırlatma işlemi için RabbitMQ kullanıldı.
-:heavy_check_mark: Veritabanı işlemleri için EntityFrameworkCore, MSSQL ve MongoDb kullanıldı.
-:heavy_check_mark: Projede Unit ve Entegrasyon testi yazıldı.
-:heavy_check_mark: InMemoryCache kullanıldı.
+:heavy_check_mark: Onion Architecture kullanıldı.<br>
+:heavy_check_mark: Postman ile API test edildi.<br>
+:heavy_check_mark: API'nin dışardan kullanılabilmesi için token(JWT) bazlı bir yapı geliştirildi.<br>
+:heavy_check_mark: Event fırlatma işlemi için RabbitMQ kullanıldı.<br>
+:heavy_check_mark: Veritabanı işlemleri için EntityFrameworkCore, MSSQL ve MongoDb kullanıldı.<br>
+:heavy_check_mark: Projede Unit ve Entegrasyon testi yazıldı.<br>
+:heavy_check_mark: InMemoryCache kullanıldı.<br>
 
 ## Proje İçeriği:
 - Özetle kullanıcıların almayı planladıkları ürünleri kaydedip takibini yapabilecekleri bir Web API.
@@ -57,6 +58,47 @@ Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitir
 ```
 
 - Kullanımı için projemizi derledikten sonra çalıştırıyoruz.
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/swagger1.png"/>
+- Controller metodları
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/swagger2.png"/>
+- Controller metodları
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman1.png"/>
+
+- Kayıtlı kullanıcı girişi 
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman2.png"/>
+- Giriş yaptıktan sonra doğrulama yapılması ve token verilmesi
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman3.png"/>
+- Tokenin type'ını Bearer Token olarak seçtikten sonra ilgili yere yapıştırılması
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman4.png"/>
+- Shopping Listimizi hazırlamak için url query kısmına categoryname ve title kısmını girdikten sonra body tarafında shopping listingin oluşturulması
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman5.png"/>
+- Get yaptığımızda dönen response
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman6.png"/>
+- Get yaptığımızda dönen response
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman7.png"/>
+- Listenin tamamlanması için Patch metoduyla iscompleted değerinin 1 verilmesi
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/rabbitmq.png"/>
+- Patch metoduyla eventin yakalanması ve RabbitMQ tarafından görülmesi
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/rabbitmq2.png"/>
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/mongo.png"/>
+- Tamamlanan listenin MongoDb tarafından kayıt alınması ve gösterilmesi
+
+<img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/tree/master/Media/postman8.png"/>
+- Doğrulamayı test etmek için token type'ını kapattıktan sonra sistemin kullanıcının Unauthorized edilmesi
+
+
 
 
 	

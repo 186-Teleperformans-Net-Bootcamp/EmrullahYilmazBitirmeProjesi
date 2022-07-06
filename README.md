@@ -1,4 +1,3 @@
-
 #Teleperformance .Net Bootcamp Bitirme Proesi
 
 Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitirme projesidir.

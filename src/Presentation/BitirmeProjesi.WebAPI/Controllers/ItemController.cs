@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using BitirmeProjesi.Infrastructure;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace BitirmeProjesi.WebAPI.Controllers
 {
@@ -13,13 +15,44 @@ namespace BitirmeProjesi.WebAPI.Controllers
     [Authorize]
     public class ItemController : ControllerBase
     {
+        const string cacheKey = "Key";
+        private readonly IMemoryCache _memCache;
         private ApplicationDbContext applicationDbContext = null;
+        private IITemService service;
 
-        public ItemController(ApplicationDbContext applicationDbContext)
+        public ItemController(ApplicationDbContext applicationDbContext, IMemoryCache memCache)
         {
             this.applicationDbContext = applicationDbContext;
+            _memCache = memCache;
         }
 
+        public ItemController(IITemService service)
+        {
+            this.service = service;
+        }
+
+        [HttpGet("cache")]
+        public ActionResult<IEnumerable<Item>> GetByCache()
+        {
+            Item item = new Item()
+            {
+                ShoppingListId = 4,
+                Id = 1,
+                Name = "pantolon",
+                Quantity = 2,
+                Type = Domain.Entitiess.Type.Adet
+            };
+            if (!_memCache.TryGetValue(cacheKey, out item))
+            {
+                var cacheExpOptions = new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpiration = DateTime.Now.AddMinutes(30),
+                    Priority = CacheItemPriority.Normal
+                };
+                _memCache.Set(cacheKey, item, cacheExpOptions);
+            }
+            return Ok();
+        }
         [HttpGet]
         public IEnumerable<Item> Get()
         {
@@ -28,7 +61,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
             return users;
         }
         [HttpDelete]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
             try
             {
@@ -36,12 +69,14 @@ namespace BitirmeProjesi.WebAPI.Controllers
                 var ıtem = applicationDbContext.Items.FirstOrDefault(f => f.Id == id);
                 applicationDbContext.Remove(ıtem);
                 applicationDbContext.SaveChanges();
+                return Ok();
             }
             catch (Exception e)
             {
 
                 throw e;
             }
+            return BadRequest();
         }
         [HttpPost]
         public void Post(string name, int quantity,int shoplistid,Domain.Entitiess.Type type)
@@ -63,6 +98,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
             }
             catch(Exception e)
             {
+                Response.StatusCode = 500;
                 throw e;
             }
             

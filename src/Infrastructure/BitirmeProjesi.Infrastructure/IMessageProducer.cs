@@ -20,12 +20,12 @@ namespace BitirmeProjesi.Infrastructure
             var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
 
-            channel.QueueDeclare("students", exclusive: false);
+            channel.QueueDeclare("ShoppingList", exclusive: false);
 
             var json = JsonConvert.SerializeObject(message);
             var body = Encoding.UTF8.GetBytes(json);
 
-            channel.BasicPublish(exchange: "", routingKey: "students", body: body);
+            channel.BasicPublish(exchange: "", routingKey: "ShoppingList", body: body);
         }
 
     }

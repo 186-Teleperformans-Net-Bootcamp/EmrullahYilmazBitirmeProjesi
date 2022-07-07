@@ -107,7 +107,7 @@ Bu proje Patika.dev & Teleperformance ortaklığıyla düzenlenen bootcamp bitir
 
 <img src="https://github.com/186-Teleperformans-Net-Bootcamp/EmrullahYilmazBitirmeProjesi/blob/master/Media/postman8.png"/>
 
-- Doğrulamayı test etmek için token type'ını kapattıktan sonra sistemin kullanıcının Unauthorized edilmesi
+- Doğrulamayı test etmek için token type'ını kapattıktan sonra sistemin kullanıcıyı Unauthorized etmesi
 
 
 

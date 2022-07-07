@@ -1,5 +1,6 @@
 ﻿using BitirmeProjesi.Domain.Entities;
 using BitirmeProjesi.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -10,6 +11,7 @@ namespace BitirmeProjesi.WebAPI.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MongoDbController : ControllerBase
     {
         private readonly IMongoCollection<MongoShoppingList> _shoppinglist;
